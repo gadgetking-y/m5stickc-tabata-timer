@@ -123,17 +123,17 @@ void drawUI() {
     canvas.fillRect(5, 145, progressWidth, 6, barColor);
 
     // Large Timer
-    uint16_t timerColor = WHITE;
-    if (timerValue <= 3) timerColor = RED;
+    uint16_t timerColor = (paused) ? DARKGREY : (timerValue <= 3 ? RED : WHITE);
     canvas.setTextColor(timerColor);
     canvas.setTextSize(6);
     int xPos = (timerValue >= 10) ? 5 : 23;
-    canvas.setCursor(xPos, 70);
+    canvas.setCursor(xPos, 60); // Moved up to 60 to avoid overlap
     canvas.print(timerValue);
     
     if (paused) {
       canvas.setTextColor(YELLOW);
-      canvas.drawCentreString(" PAUSED ", 40, 120, 1);
+      canvas.setTextSize(2);
+      canvas.drawCentreString("PAUSE", 40, 120, 1);
     }
   }
 
