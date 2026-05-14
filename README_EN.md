@@ -20,6 +20,17 @@ A high-visibility, smooth-performance Tabata training timer designed for M5Stick
 - **Main Unit:** M5StickC (or M5StickC Plus/Plus2 - code adjustments may be required)
 - **Extension:** M5Stack Speaker HAT
 
+## Dependencies & Libraries
+
+To build this project, you need the following libraries and board manager settings:
+
+- **Libraries:**
+  - `M5StickC` (by M5Stack): Used for device control, LCD rendering, and power management (AXP192).
+  - `TFT_eSprite` (Built-in with M5StickC library): Enables flicker-free rendering via double buffering.
+- **Board Manager:**
+  - `esp32` (by Espressif Systems) or `m5stack` (by M5Stack)
+  - Board Selection: `M5Stick-C`
+
 ## How to Use
 
 1.  **Boot:** Power on the device to see the "READY" screen.
