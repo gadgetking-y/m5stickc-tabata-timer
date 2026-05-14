@@ -19,6 +19,7 @@ int currentRound = 1;
 int timerValue = 0;
 unsigned long lastTick = 0;
 bool paused = false;
+unsigned long inactivityStart = 0;
 
 // Audio Configuration
 const uint8_t LEDC_CHANNEL = 0;
@@ -143,7 +144,10 @@ void drawUI() {
 void loop() {
   M5.update();
 
+  bool interaction = false;
+
   if (M5.BtnA.wasPressed()) {
+    interaction = true;
     if (currentState == READY) {
       currentState = PREP;
       timerValue = PREP_TIME;
@@ -154,6 +158,7 @@ void loop() {
   }
 
   if (M5.BtnB.wasPressed()) {
+    interaction = true;
     currentState = READY;
     currentRound = 1;
     timerValue = 0;
@@ -161,6 +166,18 @@ void loop() {
   }
 
   drawUI();
+
+  // Auto Power-Off Logic
+  if (currentState == READY || currentState == FINISHED) {
+    if (inactivityStart == 0 || interaction) {
+      inactivityStart = millis();
+    }
+    if (millis() - inactivityStart > 60000) { // 1 minute
+      M5.Axp.PowerOff();
+    }
+  } else {
+    inactivityStart = 0; // Reset when active
+  }
 
   if (currentState != READY && currentState != FINISHED && !paused) {
     if (millis() - lastTick >= 1000) {
