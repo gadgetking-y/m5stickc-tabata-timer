@@ -2,6 +2,8 @@
 
 M5StickC と Speaker HAT を使用した、視認性が高くスムーズな動作のタバタ式トレーニングタイマーです。
 
+![Appearance](images/appearance.png)
+
 ## 特徴
 
 - **スムーズな描画:** ダブルバッファリング（TFT_eSprite）の実装により、画面のちらつきを完全に解消。

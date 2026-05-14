@@ -2,6 +2,8 @@
 
 A high-visibility, smooth-performance Tabata training timer designed for M5StickC and the Speaker HAT.
 
+![Appearance](images/appearance.png)
+
 ## Features
 
 - **Smooth Rendering:** Implements double buffering (TFT_eSprite) to completely eliminate screen flickering.
