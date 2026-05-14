@@ -53,3 +53,7 @@ const int ROUNDS = 8;     // Total number of sets
 **No Sound:**
 - Check if the Speaker HAT is firmly seated in the header.
 - Check the small volume dial on the side of the Speaker HAT.
+
+## License
+
+MIT License

@@ -53,3 +53,7 @@ const int ROUNDS = 8;     // セット数
 **音が出ない場合:**
 - Speaker HAT が奥まで差し込まれているか確認してください。
 - Speaker HAT の側面にあるボリュームダイヤルを確認してください。
+
+## ライセンス
+
+MIT License
